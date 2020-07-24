@@ -6,49 +6,65 @@ import { createStore, combineReducers, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
 import logger from 'redux-logger';
 
-// String
-// let x = 'Delivery';
-// x = action.payload
-const typeReducer = (state = '', action) => {
-  if (action.type === 'SET_ORDER_TYPE') {
+const feelingReducer = (state = '', action) => {
+  if (action.type === 'SET_FEELING') {
     return action.payload;
-  } else if (action.type === 'CLEAR_ORDER_TYPE') {
+  } else if (action.type === 'CLEAR_FEELING') {
     return '';
   }
 
   return state;
 };
 
-// Object
-/*
-  {
-    fname: STRING,
-    lname: STRING,
-    address: STRING
-  }
-  */
-const customerReducer = (state = {}, action) => {
-  if (action.type === 'SET_CUSTOMER_INFO') {
+const understandingReducer = (state = '', action) => {
+  if (action.type === 'SET_UNDERSTANDING') {
     return action.payload;
-  } else if (action.type === 'CLEAR_CUSTOMER_INFO') {
-    return {};
+  } else if (action.type === 'CLEAR_UNDERSTANDING') {
+    return '';
   }
 
   return state;
 };
 
-// Array
-const pizzaReducer = (state = [], action) => {
-  if (action.type === 'SET_PIZZA_ORDER') {
+const supportedReducer = (state = '', action) => {
+  if (action.type === 'SET_SUPPORTED') {
     return action.payload;
-  } else if (action.type === 'CLEAR_PIZZA_ORDER') {
+  } else if (action.type === 'CLEAR_SUPPORTED') {
+    return '';
+  }
+
+  return state;
+};
+
+const commentsReducer = (state = [], action) => {
+  if (action.type === 'SET_COMMENTS') {
+    return action.payload;
+  } else if (action.type === 'CLEAR_COMMENTS') {
+    return [];
+  }
+
+  return state;
+};
+const summaryReducer = (state = [], action) => {
+  if (action.type === 'SET_SUMMARY') {
+    return action.payload;
+  } else if (action.type === 'CLEAR_SUMMARY') {
     return [];
   }
 
   return state;
 };
 
-const storeInstance = createStore(combineReducers({}), applyMiddleware(logger));
+const storeInstance = createStore(
+  combineReducers({
+    feelingReducer,
+    understandingReducer,
+    supportedReducer,
+    summaryReducer,
+    commentsReducer,
+  }),
+  applyMiddleware(logger)
+);
 
 ReactDOM.render(
   <Provider store={storeInstance}>

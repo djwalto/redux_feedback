@@ -5,6 +5,7 @@ import './App.css';
 import FormFeeling from './FormFeeling/FormFeeling';
 import FormUnderstanding from './FormUnderstanding/FormUnderstanding';
 import FormSupported from './FormSupported/FormSupported';
+import FormComments from './FormComments/FormComments';
 import FormSummary from './FormSummary/FormSummary';
 import FormSuccess from './FormSuccess/FormSuccess';
 import { HashRouter as Router, Route, Link } from 'react-router-dom';
@@ -24,6 +25,8 @@ class App extends Component {
           <Route exact path="/" component={FormFeeling} />
           <Route exact path="/understanding" component={FormUnderstanding} />
           <Route exact path="/supported" component={FormSupported} />
+          <Route exact path="/comments" component={FormComments} />
+
           <Route exact path="/summary" component={FormSummary} />
           <Route exact path="/success" component={FormSuccess} />
         </div>

@@ -7,6 +7,29 @@ class FormSummary extends Component {
   // Then on response, nav to beginning!
 
   // MAKE AXIOS CALL! - IN THE .THEN, DO THE BELOW!
+  confirmOrder = (event) => {
+    // Build out data for the server
+    // Axios it up to the server
+    // Then on response, nav to beginning!
+
+    const dataForServer = {
+      feeling: this.props.store.feelingReducer,
+      understanding: this.props.store.understandingReducer,
+      support: this.props.store.supportedReducer,
+      comments: this.props.store.commentsReducer,
+    };
+
+    console.log(dataForServer);
+
+    // MAKE AXIOS CALL! - IN THE .THEN, DO THE BELOW!
+
+    this.props.dispatch({ type: 'CLEAR_FEELING' });
+    this.props.dispatch({ type: 'CLEAR_UNDERSTANDING' });
+    this.props.dispatch({ type: 'CLEAR_SUPPORTED' });
+    this.props.dispatch({ type: 'CLEAR_COMMENTS' });
+
+    this.props.history.push('/');
+  };
 
   render() {
     console.log(this.props);
@@ -15,11 +38,16 @@ class FormSummary extends Component {
       <div>
         <h1>Summary Page</h1>
 
-        <div></div>
+        <div>
+          <h5>{this.props.store.feelingReducer.feeling}</h5>
+          <p>{this.props.store.understandingReducer.understanding}</p>
+          <p>{this.props.store.supportedReducer.supported}</p>
+          <p>{this.props.store.commentsReducer.comments}</p>
+        </div>
 
         <ul></ul>
 
-        <button>Submit</button>
+        <button onClick={this.confirmSurvey}>SUBMIT</button>
       </div>
     );
   }
