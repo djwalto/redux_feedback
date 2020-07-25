@@ -46,10 +46,8 @@ const commentsReducer = (state = [], action) => {
   return state;
 };
 const summaryReducer = (state = [], action) => {
-  if (action.type === 'SET_SUMMARY') {
+  if (action.type === 'SET_SURVEY') {
     return action.payload;
-  } else if (action.type === 'CLEAR_SUMMARY') {
-    return [];
   }
 
   return state;

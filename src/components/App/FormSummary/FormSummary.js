@@ -26,12 +26,11 @@ class FormSummary extends Component {
       .post('/survey', newSurvey)
       .then((response) => {
         console.log('server post:', response.data);
-        // call to GET
         this.props.dispatch({ type: 'CLEAR_FEELING' });
         this.props.dispatch({ type: 'CLEAR_UNDERSTANDING' });
         this.props.dispatch({ type: 'CLEAR_SUPPORTED' });
         this.props.dispatch({ type: 'CLEAR_COMMENTS' });
-        this.props.history.push('/');
+        this.props.history.push('/success');
       })
       .catch((err) => {
         console.log(err);

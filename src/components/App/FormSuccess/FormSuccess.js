@@ -2,24 +2,21 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 class FormSuccess extends Component {
-  // Build out data for the server
-  // Axios it up to the server
-  // Then on response, nav to beginning!
-
-  // MAKE AXIOS CALL! - IN THE .THEN, DO THE BELOW!
-
+  onNextClick = (event) => {
+    this.props.history.push('/');
+  };
   render() {
     console.log(this.props);
 
     return (
       <div>
-        <h1>Success Page</h1>
+        <h1>THANK YOU!</h1>
 
         <div></div>
 
         <ul></ul>
 
-        <button>Submit</button>
+        <button onClick={this.onNextClick}>Leave New Feedback</button>
       </div>
     );
   }
