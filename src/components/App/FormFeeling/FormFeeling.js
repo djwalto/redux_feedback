@@ -26,14 +26,9 @@ class FormFeeling extends Component {
   };
 
   addToSurvey = (event) => {
-    this.setState(
-      {
-        survey: Number(this.state.feeling),
-      },
-      () => {
-        this.clear();
-      }
-    );
+    this.setState({
+      survey: Number(this.state.feeling),
+    });
   };
 
   render() {
@@ -42,11 +37,11 @@ class FormFeeling extends Component {
     return (
       <div className="container">
         <div className="card text-center">
-          <div class="card border-dark mb-3">
-            <div class="card-header">
+          <div className="card border-dark mb-3">
+            <div className="card-header">
               <h1>How are you feeling today?</h1>
             </div>
-            <div class="card-body text-dark">
+            <div className="card-body text-dark">
               <h5 className="card-title">Feeling?</h5>
               <div>
                 <input type="text" onChange={this.onInputChange('feeling')} />

@@ -56,7 +56,7 @@ class FormSummary extends Component {
               <h1>Ready to submit?</h1>
             </div>
             <div class="card-body text-dark">
-              <div>
+              <div className="summary">
                 <p>Feeling: {this.props.store.feelingReducer.feeling}</p>
                 <p>
                   Understanding:{' '}

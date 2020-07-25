@@ -22,8 +22,45 @@
 }
 
 .display-4 {
-  font-style: italic;
+  color: rgb(252, 249, 249);
+  font-size: 3.8rem;
+  font-weight: lighter;
+  margin-bottom: 20px;
+  font-family: 'Montserrat', sans-serif;
 }
 .lead {
-  font-style: italic;
+  color: rgb(252, 249, 249);
+  font-size: 1.5rem;
+  font-weight: lighter;
+  margin-bottom: 20px;
+  font-family: 'Montserrat', sans-serif;
+}
+h1 {
+  color: rgb(10, 10, 10);
+  font-size: 2.2rem;
+  font-weight: lighter;
+  margin-bottom: 20px;
+  font-family: 'Montserrat', sans-serif;
+}
+
+h5 {
+  color: rgb(10, 10, 10);
+  font-size: 1.1rem;
+  font-weight: lighter;
+  margin-bottom: 20px;
+  font-family: 'Montserrat', sans-serif;
+}
+
+button {
+  color: rgb(250, 246, 246);
+  font-weight: lighter;
+  margin-bottom: 20px;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.summary {
+  color: rgb(5, 5, 5);
+  font-weight: lighter;
+  margin-bottom: 20px;
+  font-family: 'Montserrat', sans-serif;
 }
