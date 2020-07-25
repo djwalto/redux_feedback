@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import axios from 'axios';
+import Button from '@material-ui/core/Button';
+import Snackbar from '@material-ui/core/Snackbar';
 
 class FormSummary extends Component {
   // Build out data for the server
@@ -42,19 +44,30 @@ class FormSummary extends Component {
 
   render() {
     return (
-      <div>
-        <h1>Summary Page</h1>
+      <div className="container">
+        <div className="card text-center">
+          <div class="card border-dark mb-3">
+            <div class="card-header">
+              <h1>Summary</h1>
+            </div>
+            <div class="card-body text-dark">
+              <h5 className="card-title">Ready to submit?</h5>
+              <div>
+                <p>Feeling: {this.props.store.feelingReducer.feeling}</p>
+                <p>
+                  Understanding:{' '}
+                  {this.props.store.understandingReducer.understanding}
+                </p>
+                <p>Support: {this.props.store.supportedReducer.supported}</p>
+                <p>Comments: {this.props.store.commentsReducer.comments}</p>
+              </div>
 
-        <div>
-          <p>Feeling: {this.props.store.feelingReducer.feeling}</p>
-          <p>
-            Understanding: {this.props.store.understandingReducer.understanding}
-          </p>
-          <p>Support: {this.props.store.supportedReducer.supported}</p>
-          <p>Comments: {this.props.store.commentsReducer.comments}</p>
+              <button class="btn btn-primary" onClick={this.confirmSurvey}>
+                SUBMIT
+              </button>
+            </div>
+          </div>
         </div>
-
-        <button onClick={this.confirmSurvey}>SUBMIT</button>
       </div>
     );
   }

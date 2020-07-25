@@ -15,6 +15,10 @@ class FormUnderstanding extends Component {
   onNextClick = (event) => {
     //dispatch the customer info!
     //goto the next page!
+    if (this.state.understanding === '') {
+      alert('You forgot to answer!');
+      return;
+    }
     this.props.dispatch({ type: 'SET_UNDERSTANDING', payload: this.state });
     this.props.history.push('/supported');
   };
@@ -23,21 +27,30 @@ class FormUnderstanding extends Component {
     console.log(this.props);
 
     return (
-      <div>
-        <h1>How well are you understanding the content?</h1>
-
-        <div>
-          <form>
-            <input
-              type="text"
-              onChange={this.onInputChange('understanding')}
-              placeholder="Understanding?"
-              required
-            />
-          </form>
+      <div className="container">
+        <div className="card text-center">
+          <div class="card border-dark mb-3">
+            <div class="card-header">
+              <h1>How well are you understanding the content?</h1>
+            </div>
+            <div class="card-body text-dark">
+              <h5 className="card-title">Understanding?</h5>
+              <div>
+                <form>
+                  <input
+                    type="text"
+                    onChange={this.onInputChange('understanding')}
+                    required
+                  />
+                </form>
+              </div>
+              <br></br>
+              <button class="btn btn-primary" onClick={this.onNextClick}>
+                Next
+              </button>
+            </div>
+          </div>
         </div>
-        <br></br>
-        <button onClick={this.onNextClick}>Next</button>
       </div>
     );
   }

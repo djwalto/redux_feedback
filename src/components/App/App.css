@@ -15,3 +15,15 @@
 .App-intro {
   font-size: large;
 }
+
+.jumbotron-fluid {
+  background-color: #033076;
+  color: white;
+}
+
+.display-4 {
+  font-style: italic;
+}
+.lead {
+  font-style: italic;
+}

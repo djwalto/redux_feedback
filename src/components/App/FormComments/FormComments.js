@@ -23,20 +23,29 @@ class FormComments extends Component {
     console.log(this.props);
 
     return (
-      <div>
-        <h1>Any comments you want to leave?</h1>
-
-        <div>
-          <form>
-            <input
-              type="text box"
-              onChange={this.onInputChange('comments')}
-              placeholder="Comments?"
-            />
-          </form>
+      <div className="container">
+        <div className="card text-center">
+          <div class="card border-dark mb-3">
+            <div class="card-header">
+              <h1>Any comments you want to leave?</h1>
+            </div>
+            <div class="card-body text-dark">
+              <h5 className="card-title">Comments?</h5>
+              <div>
+                <form>
+                  <input
+                    type="textbox"
+                    onChange={this.onInputChange('comments')}
+                  />
+                </form>
+              </div>
+              <br></br>
+              <button class="btn btn-primary" onClick={this.onNextClick}>
+                Next
+              </button>
+            </div>
+          </div>
         </div>
-        <br></br>
-        <button onClick={this.onNextClick}>Next</button>
       </div>
     );
   }

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import './FormFeeling.css';
 
 class FormFeeling extends Component {
   state = {
@@ -15,6 +16,10 @@ class FormFeeling extends Component {
   onNextClick = (event) => {
     //dispatch the customer info!
     //goto the next page!
+    if (this.state.feeling === '') {
+      alert('You forgot to answer!');
+      return;
+    }
     this.props.dispatch({ type: 'SET_FEELING', payload: this.state });
     this.props.history.push('/understanding');
   };
@@ -34,21 +39,28 @@ class FormFeeling extends Component {
     console.log(this.props);
 
     return (
-      <div>
-        <h1>How are you feeling today?</h1>
-
-        <div>
-          <form>
-            <input
-              type="text"
-              onChange={this.onInputChange('feeling')}
-              placeholder="Feeling?"
-              required
-            />
-          </form>
+      <div className="container">
+        <div className="card text-center">
+          <div class="card border-dark mb-3">
+            <div class="card-header">
+              <h1>How are you feeling today?</h1>
+            </div>
+            <div class="card-body text-dark">
+              <h5 className="card-title">Feeling?</h5>
+              <div>
+                <input
+                  type="text"
+                  onChange={this.onInputChange('feeling')}
+                  required
+                />
+              </div>
+              <br></br>
+              <button class="btn btn-primary" onClick={this.onNextClick}>
+                Next
+              </button>
+            </div>
+          </div>
         </div>
-        <br></br>
-        <button onClick={this.onNextClick}>Next</button>
       </div>
     );
   }
