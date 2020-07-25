@@ -8,7 +8,7 @@ class FormFeeling extends Component {
 
   onInputChange = (input) => (event) => {
     this.setState({
-      [input]: event.target.value,
+      [input]: Number(event.target.value),
     });
   };
 
@@ -22,7 +22,7 @@ class FormFeeling extends Component {
   addToSurvey = (event) => {
     this.setState(
       {
-        survey: [...this.state.survey, this.state.feeling],
+        survey: Number(this.state.feeling),
       },
       () => {
         this.clear();
