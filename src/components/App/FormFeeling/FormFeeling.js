@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import './FormFeeling.css';
+import Button from 'react-bootstrap/Button';
 
 class FormFeeling extends Component {
   state = {
@@ -48,16 +49,12 @@ class FormFeeling extends Component {
             <div class="card-body text-dark">
               <h5 className="card-title">Feeling?</h5>
               <div>
-                <input
-                  type="text"
-                  onChange={this.onInputChange('feeling')}
-                  required
-                />
+                <input type="text" onChange={this.onInputChange('feeling')} />
               </div>
               <br></br>
-              <button class="btn btn-primary" onClick={this.onNextClick}>
+              <Button variant="primary" onClick={this.onNextClick}>
                 Next
-              </button>
+              </Button>
             </div>
           </div>
         </div>

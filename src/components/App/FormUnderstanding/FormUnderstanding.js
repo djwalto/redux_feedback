@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import Button from 'react-bootstrap/Button';
 
 class FormUnderstanding extends Component {
   state = {
@@ -10,6 +11,10 @@ class FormUnderstanding extends Component {
     this.setState({
       [input]: event.target.value,
     });
+  };
+
+  onBackClick = (event) => {
+    this.props.history.push('/');
   };
 
   onNextClick = (event) => {
@@ -40,14 +45,16 @@ class FormUnderstanding extends Component {
                   <input
                     type="text"
                     onChange={this.onInputChange('understanding')}
-                    required
                   />
                 </form>
               </div>
               <br></br>
-              <button class="btn btn-primary" onClick={this.onNextClick}>
+              <Button variant="primary" onClick={this.onBackClick}>
+                Back
+              </Button>
+              <Button variant="primary" onClick={this.onNextClick}>
                 Next
-              </button>
+              </Button>
             </div>
           </div>
         </div>

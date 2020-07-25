@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import axios from 'axios';
-import Button from '@material-ui/core/Button';
-import Snackbar from '@material-ui/core/Snackbar';
+import Button from 'react-bootstrap/Button';
+import swal from 'sweetalert';
 
 class FormSummary extends Component {
   // Build out data for the server
@@ -16,11 +16,16 @@ class FormSummary extends Component {
       support: this.props.store.supportedReducer.supported,
       comments: this.props.store.commentsReducer.comments,
     };
+    swal('Awesome', 'Thanks for sending us your feedback!', 'success');
     console.log(newSurvey);
     this.postNewSurvey(newSurvey);
     // Build out data for the server
     // Axios it up to the server
     // Then on response, nav to beginning!
+  };
+
+  onBackClick = (event) => {
+    this.props.history.push('/comments');
   };
 
   postNewSurvey(newSurvey) {
@@ -48,10 +53,9 @@ class FormSummary extends Component {
         <div className="card text-center">
           <div class="card border-dark mb-3">
             <div class="card-header">
-              <h1>Summary</h1>
+              <h1>Ready to submit?</h1>
             </div>
             <div class="card-body text-dark">
-              <h5 className="card-title">Ready to submit?</h5>
               <div>
                 <p>Feeling: {this.props.store.feelingReducer.feeling}</p>
                 <p>
@@ -61,10 +65,12 @@ class FormSummary extends Component {
                 <p>Support: {this.props.store.supportedReducer.supported}</p>
                 <p>Comments: {this.props.store.commentsReducer.comments}</p>
               </div>
-
-              <button class="btn btn-primary" onClick={this.confirmSurvey}>
+              <Button variant="primary" onClick={this.onBackClick}>
+                Back
+              </Button>
+              <Button variant="primary" onClick={this.confirmSurvey}>
                 SUBMIT
-              </button>
+              </Button>
             </div>
           </div>
         </div>
