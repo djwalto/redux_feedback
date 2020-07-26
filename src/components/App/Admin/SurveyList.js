@@ -8,15 +8,17 @@ import React, { Component } from 'react';
 function SurveyList(props) {
   return (
     <section>
-      <h2>All Surveys</h2>
-      <ul>
+      <table>
+        <th>Feeling</th>
+        <th>Understanding</th>
+        <th>Supported</th>
         {props.reduxStore.surveyReducer.map((survey, index) => (
           <li key={index}>
-            {survey.feeling} {survey.understanding} {survey.support}{' '}
-            {survey.comments}
+            {survey.feeling}
+            {survey.understanding} {survey.support} {survey.comments}
           </li>
         ))}
-      </ul>
+      </table>
     </section>
   );
 }
