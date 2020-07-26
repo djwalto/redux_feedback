@@ -1,14 +1,13 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import axios from 'axios';
+
 import Button from 'react-bootstrap/Button';
 import swal from 'sweetalert';
 
+// Displays summary of answers to user for submissions
+// Consolidates all inputs from reducers to POST to db
 class FormSummary extends Component {
-  // Build out data for the server
-  // Axios it up to the server
-  // Then on response, nav to beginning!
-  // MAKE AXIOS CALL! - IN THE .THEN, DO THE BELOW!
   confirmSurvey = (event) => {
     const newSurvey = {
       feeling: this.props.store.feelingReducer.feeling,
@@ -17,11 +16,7 @@ class FormSummary extends Component {
       comments: this.props.store.commentsReducer.comments,
     };
     swal('Awesome', 'Thanks for sending us your feedback!', 'success');
-    console.log(newSurvey);
     this.postNewSurvey(newSurvey);
-    // Build out data for the server
-    // Axios it up to the server
-    // Then on response, nav to beginning!
   };
 
   onBackClick = (event) => {
@@ -32,7 +27,6 @@ class FormSummary extends Component {
     axios
       .post('/survey', newSurvey)
       .then((response) => {
-        console.log('server post:', response.data);
         this.props.dispatch({ type: 'CLEAR_FEELING' });
         this.props.dispatch({ type: 'CLEAR_UNDERSTANDING' });
         this.props.dispatch({ type: 'CLEAR_SUPPORTED' });
@@ -44,8 +38,6 @@ class FormSummary extends Component {
         alert('Could not save the new survey. Sorry :(');
       });
   }
-
-  // MAKE AXIOS CALL! - IN THE .THEN, DO THE BELOW!
 
   render() {
     return (
@@ -59,7 +51,7 @@ class FormSummary extends Component {
               <div className="summary">
                 <p>Feeling: {this.props.store.feelingReducer.feeling}</p>
                 <p>
-                  Understanding:{' '}
+                  Understanding:
                   {this.props.store.understandingReducer.understanding}
                 </p>
                 <p>Support: {this.props.store.supportedReducer.supported}</p>

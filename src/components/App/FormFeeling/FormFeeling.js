@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import './FormFeeling.css';
 import Button from 'react-bootstrap/Button';
 
+// Captures input and dispatches to reducer
 class FormFeeling extends Component {
   state = {
     feeling: '',
@@ -15,8 +15,6 @@ class FormFeeling extends Component {
   };
 
   onNextClick = (event) => {
-    //dispatch the customer info!
-    //goto the next page!
     if (this.state.feeling === '') {
       alert('You forgot to answer!');
       return;
@@ -32,8 +30,6 @@ class FormFeeling extends Component {
   };
 
   render() {
-    console.log(this.props);
-
     return (
       <div className="container">
         <div className="card text-center">

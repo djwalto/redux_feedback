@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Button from 'react-bootstrap/Button';
 
+// Captures input and dispatches to reducer
 class FormComments extends Component {
   state = {
     comments: '',
@@ -18,15 +19,11 @@ class FormComments extends Component {
   };
 
   onNextClick = (event) => {
-    //dispatch the customer info!
-    //goto the next page!
     this.props.dispatch({ type: 'SET_COMMENTS', payload: this.state });
     this.props.history.push('/summary');
   };
 
   render() {
-    console.log(this.props);
-
     return (
       <div className="container">
         <div className="card text-center">

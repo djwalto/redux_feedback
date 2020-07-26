@@ -3,17 +3,17 @@ import { connect } from 'react-redux';
 import SurveyList from './SurveyList';
 import axios from 'axios';
 
+// Admin page for user to review surveys submitted
 class Admin extends Component {
   componentDidMount() {
     this.getAllSurveys();
   }
 
-  // TODO - GET Book List from server
+  // Get for all surveys from db
   getAllSurveys() {
     axios
       .get('/survey')
       .then((response) => {
-        console.log(response);
         this.props.dispatch({
           type: 'SET_SURVEYS',
           payload: response.data,
@@ -21,7 +21,7 @@ class Admin extends Component {
       })
       .catch((err) => {
         console.log(err);
-        alert('Something went terribly wrong!!!');
+        alert('Something went wrong!');
       });
   }
 
@@ -29,7 +29,7 @@ class Admin extends Component {
     return (
       <div className="App">
         <header>
-          <h1>Surveys!</h1>
+          <h1>Submitted Surveys</h1>
         </header>
         <main>
           <SurveyList />
@@ -38,6 +38,7 @@ class Admin extends Component {
     );
   }
 }
+
 const mapStoreToProps = (store) => ({ store });
 
 export default connect(mapStoreToProps)(Admin);

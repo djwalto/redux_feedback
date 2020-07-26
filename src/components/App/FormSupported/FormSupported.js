@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Button from 'react-bootstrap/Button';
 
+// Captures input and dispatches to reducer
 class FormSupported extends Component {
   state = {
     supported: '',
@@ -18,8 +19,6 @@ class FormSupported extends Component {
   };
 
   onNextClick = (event) => {
-    //dispatch the customer info!
-    //goto the next page!
     if (this.state.supported === '') {
       alert('You forgot to answer!');
       return;

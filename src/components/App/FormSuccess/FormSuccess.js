@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
+// Confirms to user survey was submitted
 class FormSuccess extends Component {
   onNextClick = (event) => {
     this.props.history.push('/');
   };
-  render() {
-    console.log(this.props);
 
+  render() {
     return (
       <div className="container">
         <div className="card text-center">

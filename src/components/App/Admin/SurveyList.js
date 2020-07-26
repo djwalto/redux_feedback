@@ -2,10 +2,8 @@ import { connect } from 'react-redux';
 import React, { Component } from 'react';
 import Table from 'react-bootstrap/Table';
 
-//This is a function component. It cant have local state, nor methods!
-//You do have access to props sent in, though.
-//the return is the same as render in a class component
-//no `this`
+// Table of all surveys submitted by user
+// Ordered by newest submission first
 function SurveyList(props) {
   return (
     <section>
@@ -14,10 +12,10 @@ function SurveyList(props) {
           <tr>
             <th>Survey Id</th>
             <th>Feeling</th>
-            <th>Understanding</th>
-            <th>Supported</th>
+            <th>Comprehension</th>
+            <th>Support</th>
             <th>Comments</th>
-            <th></th>
+            <th>Delete</th>
           </tr>
         </thead>
         <tbody>
@@ -28,7 +26,7 @@ function SurveyList(props) {
               <td>{survey.understanding}</td>
               <td>{survey.support}</td>
               <td>{survey.comments}</td>
-              <td>trash</td>
+              <td></td>
             </tr>
           ))}
         </tbody>
@@ -41,5 +39,4 @@ const mapStateToProps = (reduxStore) => ({
   reduxStore,
 });
 
-// export default withRouter(BookList);
 export default connect(mapStateToProps)(SurveyList);

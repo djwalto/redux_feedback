@@ -1,15 +1,16 @@
 import React, { Component } from 'react';
 import './App.css';
+import { HashRouter as Router, Route, Link } from 'react-router-dom';
+
+import Nav from 'react-bootstrap/Nav';
 import Admin from './Admin/Admin';
-import AppLayout from '../App/AppLayout/AppLayout';
 import FormFeeling from './FormFeeling/FormFeeling';
 import FormUnderstanding from './FormUnderstanding/FormUnderstanding';
 import FormSupported from './FormSupported/FormSupported';
 import FormComments from './FormComments/FormComments';
 import FormSummary from './FormSummary/FormSummary';
 import FormSuccess from './FormSuccess/FormSuccess';
-import { HashRouter as Router, Route, Link } from 'react-router-dom';
-import NavBar from '../NavBar/NavBar';
+
 class App extends Component {
   render() {
     return (
@@ -19,6 +20,14 @@ class App extends Component {
             <div class="container">
               <h1 class="display-4">Feedback</h1>
               <p class="lead">Don't forget it!</p>
+              <Nav defaultActiveKey="/admin" as="ul">
+                <Nav.Item as="li">
+                  <Nav.Link href="/#admin">Submitted Surveys</Nav.Link>
+                </Nav.Item>
+                <Nav.Item as="li">
+                  <Nav.Link href="/feeling">New Survey</Nav.Link>
+                </Nav.Item>
+              </Nav>
             </div>
           </div>
           <br />

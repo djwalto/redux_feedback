@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Button from 'react-bootstrap/Button';
 
+// Captures input and dispatches to reducer
 class FormUnderstanding extends Component {
   state = {
     understanding: '',
@@ -18,8 +19,6 @@ class FormUnderstanding extends Component {
   };
 
   onNextClick = (event) => {
-    //dispatch the customer info!
-    //goto the next page!
     if (this.state.understanding === '') {
       alert('You forgot to answer!');
       return;
@@ -29,8 +28,6 @@ class FormUnderstanding extends Component {
   };
 
   render() {
-    console.log(this.props);
-
     return (
       <div className="container">
         <div className="card text-center">
