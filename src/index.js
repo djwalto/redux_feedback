@@ -44,8 +44,9 @@ const commentsReducer = (state = [], action) => {
 
   return state;
 };
-const summaryReducer = (state = [], action) => {
-  if (action.type === 'SET_SURVEY') {
+
+const surveyReducer = (state = [], action) => {
+  if (action.type === 'SET_SURVEYS') {
     return action.payload;
   }
 
@@ -57,8 +58,8 @@ const storeInstance = createStore(
     feelingReducer,
     understandingReducer,
     supportedReducer,
-    summaryReducer,
     commentsReducer,
+    surveyReducer,
   }),
   applyMiddleware(logger)
 );

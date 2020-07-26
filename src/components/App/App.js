@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import axios from 'axios';
 import './App.css';
+import Admin from './Admin/Admin';
 import AppLayout from '../App/AppLayout/AppLayout';
 import FormFeeling from './FormFeeling/FormFeeling';
 import FormUnderstanding from './FormUnderstanding/FormUnderstanding';
@@ -29,6 +29,7 @@ class App extends Component {
 
           <Route exact path="/summary" component={FormSummary} />
           <Route exact path="/success" component={FormSuccess} />
+          <Route exact path="/admin" component={Admin} />
         </div>
       </Router>
     );
