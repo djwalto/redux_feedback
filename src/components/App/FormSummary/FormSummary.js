@@ -51,7 +51,7 @@ class FormSummary extends Component {
               <div className="summary">
                 <p>Feeling: {this.props.store.feelingReducer.feeling}</p>
                 <p>
-                  Understanding:
+                  Understanding:{' '}
                   {this.props.store.understandingReducer.understanding}
                 </p>
                 <p>Support: {this.props.store.supportedReducer.supported}</p>
@@ -61,7 +61,7 @@ class FormSummary extends Component {
                 Back
               </Button>
               <Button variant="primary" onClick={this.confirmSurvey}>
-                SUBMIT
+                Submit
               </Button>
             </div>
           </div>

@@ -29,7 +29,7 @@ class Admin extends Component {
     return (
       <div className="App">
         <header>
-          <h1>Submitted Surveys</h1>
+          <h1>Survey History</h1>
         </header>
         <main>
           <SurveyList />

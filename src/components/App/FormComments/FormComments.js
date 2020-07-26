@@ -36,7 +36,7 @@ class FormComments extends Component {
               <div>
                 <form>
                   <input
-                    type="textbox"
+                    type="inputbox"
                     onChange={this.onInputChange('comments')}
                   />
                 </form>

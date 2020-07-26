@@ -1,6 +1,7 @@
 import { connect } from 'react-redux';
 import React, { Component } from 'react';
 import Table from 'react-bootstrap/Table';
+import Button from 'react-bootstrap/Button';
 
 // Table of all surveys submitted by user
 // Ordered by newest submission first
@@ -26,7 +27,11 @@ function SurveyList(props) {
               <td>{survey.understanding}</td>
               <td>{survey.support}</td>
               <td>{survey.comments}</td>
-              <td></td>
+              <td>
+                <Button variant="danger" key={survey.id}>
+                  Delete
+                </Button>
+              </td>
             </tr>
           ))}
         </tbody>

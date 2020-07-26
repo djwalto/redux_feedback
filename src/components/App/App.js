@@ -22,7 +22,7 @@ class App extends Component {
               <p class="lead">Don't forget it!</p>
               <Nav defaultActiveKey="/admin" as="ul">
                 <Nav.Item as="li">
-                  <Nav.Link href="/#admin">Submitted Surveys</Nav.Link>
+                  <Nav.Link href="/#admin">Your Surveys</Nav.Link>
                 </Nav.Item>
                 <Nav.Item as="li">
                   <Nav.Link href="/feeling">New Survey</Nav.Link>

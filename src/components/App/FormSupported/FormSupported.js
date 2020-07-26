@@ -38,7 +38,7 @@ class FormSupported extends Component {
               <h1>How well are you being supported?</h1>
             </div>
             <div class="card-body text-dark">
-              <h5 className="card-title">Supported?</h5>
+              <h5 className="card-title">*With 10 being the best</h5>
               <div>
                 <form>
                   <input

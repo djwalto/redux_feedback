@@ -19,7 +19,7 @@ class FormSuccess extends Component {
               <h5 className="card-title">Want to leave new feedback?</h5>
               <div>
                 <button class="btn btn-primary" onClick={this.onNextClick}>
-                  Return Home
+                  Home
                 </button>
               </div>
             </div>

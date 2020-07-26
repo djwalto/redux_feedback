@@ -38,7 +38,7 @@ class FormFeeling extends Component {
               <h1>How are you feeling today?</h1>
             </div>
             <div className="card-body text-dark">
-              <h5 className="card-title">Feeling?</h5>
+              <h5 className="card-title">*With 10 being the best</h5>
               <div>
                 <input type="number" onChange={this.onInputChange('feeling')} />
               </div>
