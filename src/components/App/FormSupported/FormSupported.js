@@ -43,7 +43,7 @@ class FormSupported extends Component {
               <div>
                 <form>
                   <input
-                    type="text"
+                    type="number"
                     onChange={this.onInputChange('supported')}
                   />
                 </form>

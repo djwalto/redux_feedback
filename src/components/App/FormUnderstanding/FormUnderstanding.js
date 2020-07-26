@@ -43,7 +43,7 @@ class FormUnderstanding extends Component {
               <div>
                 <form>
                   <input
-                    type="text"
+                    type="number"
                     onChange={this.onInputChange('understanding')}
                   />
                 </form>

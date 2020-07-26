@@ -5,6 +5,7 @@ import App from './components/App/App';
 import { createStore, combineReducers, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
 import logger from 'redux-logger';
+
 const feelingReducer = (state = '', action) => {
   if (action.type === 'SET_FEELING') {
     return action.payload;

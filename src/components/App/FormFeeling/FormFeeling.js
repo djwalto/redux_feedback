@@ -44,7 +44,7 @@ class FormFeeling extends Component {
             <div className="card-body text-dark">
               <h5 className="card-title">Feeling?</h5>
               <div>
-                <input type="text" onChange={this.onInputChange('feeling')} />
+                <input type="number" onChange={this.onInputChange('feeling')} />
               </div>
               <br></br>
               <Button variant="primary" onClick={this.onNextClick}>
