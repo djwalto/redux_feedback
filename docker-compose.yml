@@ -1,0 +1,51 @@
+version: '3'
+
+services:
+  client: 
+    build:
+      context: ./
+      dockerfile: ./Dockerfile.client
+    ports:
+      - 3000:3000
+      - 35729:35729
+    volumes:
+      - './src:/app-client/src'
+      - './public:/app-client/public'
+      - '/app-client/node_modules'
+    depends_on:
+      - server
+    command: npm run client
+  database:
+    image: postgres:latest
+    restart: always
+    ports: 
+      - ${DOCKER_DB_PORT}:${DOCKER_DB_PORT}
+    environment:
+      POSTGRES_USER: ${DOCKER_DB_USER}
+      POSTGRES_PASSWORD: ${DOCKER_DB_PASS}
+      POSTGRES_DB: ${DOCKER_DB_NAME}
+      POSTGRES_HOST: ${DOCKER_DB_HOST}
+    volumes:
+      - ./database/inint.sql:/docker-entrypoint-initdb.d/10-init.sql
+      - ./database/inint.sql:/docker-entrypoint-initdb.d/20-data.sql
+  server:
+    build:
+      context: ./
+      dockerfile: ./Dockerfile.server
+    ports:
+    - 5000:5000
+    environment:
+      PORT_DB: ${DOCKER_DB_PORT}
+      POSTGRES_USER: ${DOCKER_DB_USER}
+      POSTGRES_PASSWORD: ${DOCKER_DB_PASS}
+      POSTGRES_DB: ${DOCKER_DB_NAME}
+      POSTGRES_HOST: database
+      CHOKIDAR_USEPOLLING: 'true'
+      NODE_ENV: ${NODE_ENV}
+    volumes:
+      - './server:/app-server/server'
+      - '.public:/app-server/public'
+      - '/app-server/node_modules'
+    depends_on:
+      - database
+    command: npm run server
