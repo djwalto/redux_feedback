@@ -1,4 +1,3 @@
-CREATE DATABASE "prime_feedback";
 
 CREATE TABLE "feedback"
 (
